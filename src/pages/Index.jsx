@@ -3,6 +3,7 @@ import './Index.scss'
 import Navbar from '../components/Navbar'
 import HeroImage from '../assets/hero.jpg'
 import SearchIcon from '../assets/Search.svg'
+import DealerCard from '../components/DealerCard'
 
 export default function Index() {
     return (
@@ -30,12 +31,16 @@ export default function Index() {
                                 <option value="">Pilih Lokasi Terdekat</option>
                             </select>
                         </div>
-
-
                     </div>
                     <div className='dealer-search-right'>
                         Cari dan kunjungi dealer resmi Mitsubishi terdekat di kota Anda untuk mendapatkan pelayanan terbaik terkait dengan kendaraan dari Mitsubishi Motors Indonesia.
                     </div>
+                </div>
+            </section>
+
+            <section id='dealers'>
+                <div className='dealers-container'>
+
                 </div>
             </section>
         </>

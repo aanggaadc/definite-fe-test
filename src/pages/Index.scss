@@ -82,3 +82,19 @@
         color: #000000;
     }
 }
+
+#dealers {
+    width: 100%;
+    min-height: 866px;
+
+    .dealers-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 40px;
+        padding: 0 89px;
+        justify-content: center;
+    }
+}
