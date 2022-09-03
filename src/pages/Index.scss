@@ -1,14 +1,10 @@
-#hero {
+.main-container {
     width: 100%;
 
     .hero-container {
         max-width: 1440px;
         margin: 0 auto;
     }
-}
-
-#dealer-search {
-    width: 100%;
 
     .dealer-search-container {
         max-width: 1440px;
@@ -68,7 +64,7 @@
 
                 &::-ms-expand {
                     display: none;
-                  }
+                }
             }
 
         }
@@ -81,14 +77,10 @@
         line-height: 26px;
         color: #000000;
     }
-}
-
-#dealers {
-    width: 100%;
-    min-height: 866px;
 
     .dealers-container {
         max-width: 1440px;
+        min-height: 866px;
         margin: 0 auto;
         display: flex;
         flex-direction: row;
@@ -97,4 +89,73 @@
         padding: 0 89px;
         justify-content: center;
     }
+
+    .banner-container {
+        max-width: 1440px;
+        margin: 0 auto;
+        height: 600px;
+
+        .banner {
+            width: 1240px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-background {
+            width: 691px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background: linear-gradient(90.63deg, rgba(0, 0, 0, 0.0001) 0.48%, #000000 53.17%);
+            transform: rotate(-180deg);
+        }
+
+        .banner-image {
+            width: 79%;
+            position: absolute;
+            left: 250px;
+        }
+
+        .banner-content {
+            width: 691px;
+            height: 400px;
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0 160px 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            .banner-header {
+                font-weight: 700;
+                font-size: 48px;
+                line-height: 62px;
+                color: #fff;
+                text-transform: uppercase;
+                margin-bottom: 12px;
+            }
+
+            .banner-detail {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                color: #fff;
+                margin-bottom: 24px;
+            }
+
+            .mobile-apps {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+            }
+        }
+    }
+
 }
