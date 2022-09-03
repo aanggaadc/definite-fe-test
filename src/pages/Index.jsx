@@ -1,12 +1,15 @@
 import React from 'react'
 import './Index.scss'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import AskMira from '../components/AskMira'
 import HeroImage from '../assets/hero.jpg'
 import SearchIcon from '../assets/Search.svg'
-import DealerCard from '../components/DealerCard'
+// import DealerCard from '../components/DealerCard'
 import BannerImage from '../assets/banner.jpg'
 import PlayStore from '../assets/googleplay.png'
 import AppStore from '../assets/appstore.png'
+
 
 export default function Index() {
     return (
@@ -65,18 +68,11 @@ export default function Index() {
                         </div>
                     </div>
                 </section>
-
             </main>
 
+            <Footer />
 
-
-
-
-
-
-
-
-
+            <AskMira />
         </>
     )
 }

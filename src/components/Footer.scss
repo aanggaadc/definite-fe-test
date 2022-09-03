@@ -1,0 +1,61 @@
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .upper-line {
+        margin: 0 auto 40px auto;
+        width: 80px;
+        height: 3px;
+        border-radius: 4px;
+        background: linear-gradient(212.58deg, #FF4D00 -29.35%, #DA291C 90.64%);
+    }
+
+    .footer-header {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+        color: #4C4C4C;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        margin-bottom: 24px;
+    }
+
+    .contact-footer {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+        color: #0A0A0A;
+        margin-bottom: 20px;
+    }
+
+    .sosmed-container {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    .bottom-line {
+        margin: 0 auto;
+        width: 60px;
+        height: 3px;
+        border-radius: 4px;
+        background: linear-gradient(212.58deg, #FF4D00 -29.35%, #DA291C 90.64%);
+        margin-bottom: 40px;
+    }
+
+    .copyright {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #0A0A0A;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+    }
+}
