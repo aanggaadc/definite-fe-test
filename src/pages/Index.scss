@@ -77,17 +77,43 @@
         color: #000000;
     }
 
-    .dealers-container {
+    .dealers {
         max-width: 1440px;
-        min-height: 866px;
+        width: 100%;
         margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 40px;
-        padding: 0 89px;
-        justify-content: center;
         margin-bottom: 246px;
+
+        .dealers-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 0 89px;
+            justify-content: center;
+            margin-bottom: 79px;
+        }
+
+        .btn-container {
+            width: 100%;
+            min-height: 48px;
+            text-align: center;
+        }
+
+        .btn-loadmore {
+            width: 130px;
+            height: 48px;
+            background: #000000;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 18px;
+            transition: .5s;
+
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
+        }
     }
 
     .banner-container {

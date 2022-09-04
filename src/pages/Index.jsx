@@ -13,13 +13,13 @@ import Axios from 'axios'
 
 
 export default function Index() {
+    const [limitPage, setLimitPage] = useState(9)
+    const [totalDealer, setTotalDealer] = useState(0)
     const [province, setProvince] = useState([])
     const [dealers, setDealers] = useState([])
     const [dealer, setDealer] = useState("")
     const [location, setLocation] = useState("")
     const locationParams = dealer ? "" : location
-
-    console.log(locationParams)
 
     useEffect(() => {
         const getLocation = () => {
@@ -38,9 +38,10 @@ export default function Index() {
         }
 
         const getDelers = () => {
-            Axios.get(`search-dealers?limit=9&page=1&latlong=${locationParams}&keyword=${dealer}`)
+            Axios.get(`search-dealers?limit=${limitPage}&latlong=${locationParams}&keyword=${dealer}`)
                 .then((response) => {
                     setDealers(response.data.data)
+                    setTotalDealer(response.data.total)
                 }).catch((error) => {
                     console.log(error)
                 })
@@ -49,7 +50,7 @@ export default function Index() {
         getLocation()
         getProvince()
         getDelers()
-    }, [dealer, locationParams])
+    }, [dealer, locationParams, limitPage])
     return (
         <>
             <Navbar />
@@ -72,6 +73,7 @@ export default function Index() {
                             <select onChange={(e) => {
                                 setDealer(e.target.value)
                                 setLocation("")
+                                setLimitPage(9)
                             }}>
                                 <option value="">Pilih Lokasi Terdekat</option>
                                 {province.map((item, index) => {
@@ -85,10 +87,17 @@ export default function Index() {
                     </div>
                 </section>
 
-                <section className='dealers-container'>
-                    {dealers.map((item, index) => {
-                        return <DealerCard key={index} name={item.company} address={item.address} service={item.services} />
-                    })}
+                <section className='dealers'>
+                    <div className='dealers-container'>
+                        {dealers.map((item, index) => {
+                            return <DealerCard key={index} name={item.company} address={item.address} service={item.services} />
+                        })}
+                    </div>
+
+                    <div className='btn-container'>
+                        {totalDealer <= limitPage ? "" : <button className='btn-loadmore' onClick={() => setLimitPage(limitPage + 9)}>Load More</button>}
+                    </div>
+
                 </section>
 
                 <section className='banner-container'>
