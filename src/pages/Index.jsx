@@ -15,10 +15,19 @@ import Axios from 'axios'
 export default function Index() {
     const [province, setProvince] = useState([])
     const [dealers, setDealers] = useState([])
+    const [dealer, setDealer] = useState("")
+    const [location, setLocation] = useState("")
+    const locationParams = dealer ? "" : location
 
-    console.log(dealers)
+    console.log(locationParams)
 
     useEffect(() => {
+        const getLocation = () => {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                setLocation(`${position.coords.latitude},${position.coords.longitude}`)
+            })
+        }
+
         const getProvince = () => {
             Axios.get('get-provinces')
                 .then((response) => {
@@ -29,7 +38,7 @@ export default function Index() {
         }
 
         const getDelers = () => {
-            Axios.get('search-dealers')
+            Axios.get(`search-dealers?limit=9&page=1&latlong=${locationParams}&keyword=${dealer}`)
                 .then((response) => {
                     setDealers(response.data.data)
                 }).catch((error) => {
@@ -37,9 +46,10 @@ export default function Index() {
                 })
         }
 
+        getLocation()
         getProvince()
         getDelers()
-    }, [])
+    }, [dealer, locationParams])
     return (
         <>
             <Navbar />
@@ -59,7 +69,10 @@ export default function Index() {
                                 <img src={SearchIcon} alt="search" />
                             </div>
 
-                            <select>
+                            <select onChange={(e) => {
+                                setDealer(e.target.value)
+                                setLocation("")
+                            }}>
                                 <option value="">Pilih Lokasi Terdekat</option>
                                 {province.map((item, index) => {
                                     return <option key={index} value={item.name}>{item.name}</option>
