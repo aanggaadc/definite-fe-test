@@ -13,7 +13,9 @@ export default function DealerCard({ name, address, service }) {
             <div className='card-content'>
                 <div className='dealer-name'>{name}</div>
                 <div className='dealer-address'>{address}</div>
-                <div className='dealer-service'>{service}</div>
+                {service.map((item, index) => {
+                    return <div key={index} className='dealer-service'>{item}&ensp;</div>
+                })}
             </div>
         </div>
     )

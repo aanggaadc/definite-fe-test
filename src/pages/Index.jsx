@@ -1,17 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Index.scss'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import AskMira from '../components/AskMira'
 import HeroImage from '../assets/hero.jpg'
 import SearchIcon from '../assets/Search.svg'
-// import DealerCard from '../components/DealerCard'
+import DealerCard from '../components/DealerCard'
 import BannerImage from '../assets/banner.jpg'
 import PlayStore from '../assets/googleplay.png'
 import AppStore from '../assets/appstore.png'
+import Axios from 'axios'
 
 
 export default function Index() {
+    const [province, setProvince] = useState([])
+    const [dealers, setDealers] = useState([])
+
+    console.log(dealers)
+
+    useEffect(() => {
+        const getProvince = () => {
+            Axios.get('get-provinces')
+                .then((response) => {
+                    setProvince(response.data)
+                }).catch((error) => {
+                    console.log(error)
+                })
+        }
+
+        const getDelers = () => {
+            Axios.get('search-dealers')
+                .then((response) => {
+                    setDealers(response.data.data)
+                }).catch((error) => {
+                    console.log(error)
+                })
+        }
+
+        getProvince()
+        getDelers()
+    }, [])
     return (
         <>
             <Navbar />
@@ -33,6 +61,9 @@ export default function Index() {
 
                             <select>
                                 <option value="">Pilih Lokasi Terdekat</option>
+                                {province.map((item, index) => {
+                                    return <option key={index} value={item.name}>{item.name}</option>
+                                })}
                             </select>
                         </div>
                     </div>
@@ -42,9 +73,10 @@ export default function Index() {
                 </section>
 
                 <section className='dealers-container'>
-
+                    {dealers.map((item, index) => {
+                        return <DealerCard key={index} name={item.company} address={item.address} service={item.services} />
+                    })}
                 </section>
-
 
                 <section className='banner-container'>
                     <div className='banner'>

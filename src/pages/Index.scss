@@ -66,7 +66,6 @@
                     display: none;
                 }
             }
-
         }
     }
 
@@ -88,6 +87,7 @@
         gap: 40px;
         padding: 0 89px;
         justify-content: center;
+        margin-bottom: 246px;
     }
 
     .banner-container {
@@ -95,15 +95,18 @@
         margin: 0 auto 90px auto;
 
         .banner {
-            width: 1240px;
-            height: 400px;
+            width: 86vw;
+            height: 28vw;
+            max-width: 77.5em;
+            max-height: 25em;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
 
         .banner-background {
-            width: 691px;
+            // width: 691px;
+            width: 48.3vw;
             height: 400px;
             position: absolute;
             top: 0;
@@ -114,14 +117,17 @@
         }
 
         .banner-image {
-            width: 79%;
+            width: 68vw;
+            max-width: 79%;
             position: absolute;
             left: 250px;
         }
 
         .banner-content {
-            width: 691px;
-            height: 400px;
+            max-width: 691px;
+            width: 48vw;
+            max-height: 400px;
+            height: 27.8vw;
             z-index: 2;
             position: absolute;
             top: 0;
@@ -134,7 +140,7 @@
 
             .banner-header {
                 font-weight: 700;
-                font-size: 48px;
+                font-size: 3em;
                 line-height: 62px;
                 color: #fff;
                 text-transform: uppercase;
@@ -143,7 +149,7 @@
 
             .banner-detail {
                 font-weight: 400;
-                font-size: 16px;
+                font-size: 1em;
                 line-height: 26px;
                 color: #fff;
                 margin-bottom: 24px;
