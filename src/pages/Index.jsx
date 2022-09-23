@@ -15,7 +15,6 @@ export default function Index() {
   const [dealers, setDealers] = useState([]);
   const [dealer, setDealer] = useState("");
   const [location, setLocation] = useState("");
-  const locationParams = dealer ? "" : location;
 
   useEffect(() => {
     const getLocation = () => {
@@ -24,9 +23,15 @@ export default function Index() {
       });
     };
 
+    getLocation();
+  }, []);
+
+  useEffect(() => {
     const getDelers = () => {
       Axios.get(
-        `search-dealers?limit=${limitPage}&latlong=${locationParams}&keyword=${dealer}`
+        `search-dealers?limit=${limitPage}&latlong=${
+          location ? location : dealer
+        }&keyword=${dealer}`
       )
         .then((response) => {
           setDealers(response.data.data);
@@ -37,9 +42,8 @@ export default function Index() {
         });
     };
 
-    getLocation();
     getDelers();
-  }, [dealer, locationParams, limitPage]);
+  }, [dealer, location, limitPage]);
   return (
     <>
       <Navbar />
