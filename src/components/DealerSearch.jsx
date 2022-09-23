@@ -32,7 +32,6 @@ export default function DealerSearch({ setDealer, setLocation, setLimitPage }) {
           <select
             onChange={(e) => {
               setDealer(e.target.value);
-              setLocation("");
               setLimitPage(9);
             }}
           >

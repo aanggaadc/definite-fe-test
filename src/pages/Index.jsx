@@ -16,30 +16,30 @@ export default function Index() {
   const [dealer, setDealer] = useState("");
   const [location, setLocation] = useState("");
 
-  useEffect(() => {
-    const getLocation = () => {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        setLocation(`${position.coords.latitude},${position.coords.longitude}`);
-      });
-    };
-
-    getLocation();
-  }, []);
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLocation(`${position.coords.latitude},${position.coords.longitude}`);
+    });
+  };
 
   useEffect(() => {
-    const getDelers = () => {
-      Axios.get(
-        `search-dealers?limit=${limitPage}&latlong=${
-          location ? location : dealer
-        }&keyword=${dealer}`
-      )
-        .then((response) => {
-          setDealers(response.data.data);
-          setTotalDealer(response.data.total);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    const getDelers = async () => {
+      try {
+        const response = await Axios.get(
+          `search-dealers?limit=${limitPage}&latlong=${
+            dealer ? "" : location
+          }&keyword=${dealer} `
+        );
+        getLocation();
+        const dealerList = response?.data?.data;
+        const totalDealer = response?.data?.total;
+        setDealers(dealerList);
+        setTotalDealer(totalDealer);
+
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getDelers();
@@ -74,9 +74,7 @@ export default function Index() {
           </div>
 
           <div className="btn-container">
-            {totalDealer <= limitPage ? (
-              ""
-            ) : (
+            {totalDealer > limitPage && (
               <button
                 className="btn-loadmore"
                 onClick={() => setLimitPage(limitPage + 9)}

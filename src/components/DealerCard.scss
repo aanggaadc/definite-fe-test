@@ -1,46 +1,60 @@
 .card-container {
-    width: 393px;
-    height: auto;
-    min-height: 225px;
-    background: #F1F1F1;
-    border-radius: 20px;
-    border: none;
-    position: relative;
+  width: 393px;
+  height: auto;
+  min-height: 225px;
+  background: #f1f1f1;
+  border-radius: 20px;
+  border: none;
+  position: relative;
+}
 
-    .pin-container {
-        width: 58px;
-        position: absolute;
-        top: 24px;
-        left: 12px;
+.pin-container {
+  width: 58px;
+  position: absolute;
+  top: 24px;
+  left: 12px;
+}
+
+.card-content {
+  padding: 24px 70px 10px 70px;
+}
+
+.dealer-name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  color: #000000;
+  margin-bottom: 9px;
+}
+
+.dealer-address {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4c4c4c;
+  margin-bottom: 42px;
+}
+
+.dealer-service {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19px;
+  color: #4c4c4c;
+  text-transform: uppercase;
+  opacity: 0.5;
+  display: inline;
+
+  &:nth-child(1) {
+    &::before {
+      content: "";
+      margin-left: 0;
+      margin-right: 0;
     }
+  }
 
-    .card-content {
-        padding: 24px 70px 10px 70px;
-
-        .dealer-name {
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 32px;
-            color: #000000;
-            margin-bottom: 9px;
-        }
-
-        .dealer-address {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
-            color: #4C4C4C;
-            margin-bottom: 42px;
-        }
-
-        .dealer-service {
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 19px;
-            color: #4C4C4C;
-            text-transform: uppercase;
-            opacity: 0.5;
-            display: inline;
-        }
-    }
+  &::before {
+    content: "\2022";
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
