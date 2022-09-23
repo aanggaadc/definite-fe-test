@@ -1,191 +1,52 @@
 .main-container {
+  width: 100%;
+}
+
+.hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.dealers {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 87px;
+
+  .dealers-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 0 89px;
+    justify-content: center;
+    margin-bottom: 79px;
+  }
+
+  .btn-container {
     width: 100%;
+    min-height: 48px;
+    text-align: center;
+  }
 
-    .hero-container {
-        max-width: 1440px;
-        margin: 0 auto;
+  .btn-loadmore {
+    width: 130px;
+    height: 48px;
+    background: #000000;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
     }
+  }
+}
 
-    .dealer-search-container {
-        max-width: 1440px;
-        height: 470px;
-        // padding: 0 179px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .dealer-search-left {
-        width: 40%;
-
-        h2 {
-            font-weight: 700;
-            font-size: 48px;
-            line-height: 130%;
-            color: #000000;
-            margin-bottom: 72px;
-        }
-
-        p {
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 32px;
-            color: #9B9B9B;
-            margin-bottom: 12px;
-        }
-
-        .select-container {
-            width: 100%;
-            height: 56px;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            position: relative;
-            padding-left: 30px;
-
-            .icon-container {
-                position: absolute;
-                top: 17px;
-                left: 10px;
-                width: 22px;
-            }
-
-            select {
-                background: transparent;
-                border: 0;
-                height: 56px;
-                width: 100%;
-                background-image: url('../assets/Down-black.svg');
-                background-repeat: no-repeat, repeat;
-                background-position: right .7em top 50%, 0 0;
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                appearance: none;
-
-                &::-ms-expand {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .dealer-search-right {
-        width: 40%;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 26px;
-        color: #000000;
-    }
-
-    .dealers {
-        max-width: 1440px;
-        width: 100%;
-        margin: 0 auto;
-        margin-bottom: 246px;
-
-        .dealers-container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 40px;
-            padding: 0 89px;
-            justify-content: center;
-            margin-bottom: 79px;
-        }
-
-        .btn-container {
-            width: 100%;
-            min-height: 48px;
-            text-align: center;
-        }
-
-        .btn-loadmore {
-            width: 130px;
-            height: 48px;
-            background: #000000;
-            color: #fff;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 18px;
-            transition: .5s;
-
-            &:hover {
-                background-color: #fff;
-                color: #000;
-            }
-        }
-    }
-
-    .banner-container {
-        max-width: 1440px;
-        margin: 0 auto 90px auto;
-
-        .banner {
-            width: 86vw;
-            height: 28vw;
-            max-width: 77.5em;
-            max-height: 25em;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-background {
-            // width: 691px;
-            width: 48.3vw;
-            height: 400px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            background: linear-gradient(90.63deg, rgba(0, 0, 0, 0.0001) 0.48%, #000000 53.17%);
-            transform: rotate(-180deg);
-        }
-
-        .banner-image {
-            width: 68vw;
-            max-width: 79%;
-            position: absolute;
-            left: 250px;
-        }
-
-        .banner-content {
-            max-width: 691px;
-            width: 48vw;
-            max-height: 400px;
-            height: 27.8vw;
-            z-index: 2;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 0 160px 0 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-
-            .banner-header {
-                font-weight: 700;
-                font-size: 3em;
-                line-height: 62px;
-                color: #fff;
-                text-transform: uppercase;
-                margin-bottom: 12px;
-            }
-
-            .banner-detail {
-                font-weight: 400;
-                font-size: 1em;
-                line-height: 26px;
-                color: #fff;
-                margin-bottom: 24px;
-            }
-
-            .mobile-apps {
-                display: flex;
-                flex-direction: row;
-                gap: 12px;
-            }
-        }
-    }
+.banner-container {
+  max-width: 1240px;
+  margin: 0 auto 90px auto;
 }
