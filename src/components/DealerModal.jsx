@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./DealerModal.scss";
 
-export default function DelerModal({ dealer, setDealer, initialDealer }) {
+export default function DelerModal({
+  modalBackground,
+  setModalBackground,
+  modalContainer,
+  setModalContainer,
+  dealer,
+  setDealer,
+  initialDealer,
+}) {
+  const modalRef = useRef();
+
+  const hideModal = () => {
+    setModalContainer(false);
+    document.body.removeAttribute("style");
+    setTimeout(() => {
+      setDealer(initialDealer);
+      setModalBackground(false);
+    }, 500);
+  };
+
+  const onClickCloseModal = (e) => {
+    if (e.target === modalRef.current) {
+      hideModal();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousedown", onClickCloseModal);
+
+    return () => window.removeEventListener("mousedown", onClickCloseModal);
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className="modal-background">
-      <div className="modal-container">
+    <div
+      ref={modalRef}
+      className={`modal-background ${modalBackground ? "active" : ""}`}
+    >
+      <div
+        className={`modal-container ${
+          modalContainer ? "animate" : "close-animate"
+        }`}
+      >
         <div className="modal-header">
           <ul>
             {dealer?.services.map((item, index) => {
@@ -15,7 +54,7 @@ export default function DelerModal({ dealer, setDealer, initialDealer }) {
               );
             })}
           </ul>
-          <button onClick={() => setDealer(initialDealer)} className="btn-icon">
+          <button onClick={hideModal} className="btn-icon">
             <svg
               width="33"
               height="33"

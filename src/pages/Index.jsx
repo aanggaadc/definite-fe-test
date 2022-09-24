@@ -26,6 +26,8 @@ export default function Index() {
   const [province, setProvince] = useState("");
   const [location, setLocation] = useState("");
   const [dealer, setDealer] = useState(initialDealer);
+  const [modalBackground, setModalBackground] = useState(false);
+  const [modalContainer, setModalContainer] = useState(false);
 
   const getDealer = (item) => {
     setDealer({
@@ -37,6 +39,13 @@ export default function Index() {
       bengkel_operational_hours: item.bengkel_operational_hours,
       showroom_operational_hours: item.showroom_operational_hours,
     });
+  };
+
+  const showModal = (item) => {
+    getDealer(item);
+    document.body.style.overflow = "hidden";
+    setModalBackground(true);
+    setModalContainer(true);
   };
 
   const getLocation = () => {
@@ -83,7 +92,7 @@ export default function Index() {
           <div className="dealers-container">
             {dealers.map((item, index) => {
               return (
-                <div key={index} onClick={() => getDealer(item)}>
+                <div key={index} onClick={() => showModal(item)}>
                   <DealerCard
                     name={item.company}
                     address={item.address}
@@ -116,6 +125,10 @@ export default function Index() {
       <AskMira />
 
       <DealerModal
+        modalBackground={modalBackground}
+        setModalBackground={setModalBackground}
+        modalContainer={modalContainer}
+        setModalContainer={setModalContainer}
         dealer={dealer}
         setDealer={setDealer}
         initialDealer={initialDealer}
