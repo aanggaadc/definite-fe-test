@@ -9,6 +9,15 @@ import DealerCard from "../components/DealerCard";
 import DealerModal from "../components/DealerModal";
 import BannerImage from "../assets/banner.jpg";
 import Axios from "axios";
+const initialDealer = {
+  company: "",
+  services: [],
+  address: "",
+  phone: "",
+  distance_km: "",
+  bengkel_operational_hours: [],
+  showroom_operational_hours: [],
+};
 
 export default function Index() {
   const [limitPage, setLimitPage] = useState(9);
@@ -16,9 +25,21 @@ export default function Index() {
   const [dealers, setDealers] = useState([]);
   const [province, setProvince] = useState("");
   const [location, setLocation] = useState("");
-  const [dealer, setDealer] = useState({});
+  const [dealer, setDealer] = useState(initialDealer);
 
   console.log(dealer);
+
+  const getDealer = (item) => {
+    setDealer({
+      company: item.company,
+      services: item.services,
+      address: item.address,
+      phone: item.phone,
+      distance_km: item.distance_km,
+      bengkel_operational_hours: item.bengkel_operational_hours,
+      showroom_operational_hours: item.showroom_operational_hours,
+    });
+  };
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -64,7 +85,7 @@ export default function Index() {
           <div className="dealers-container">
             {dealers.map((item, index) => {
               return (
-                <div key={index} onClick={() => setDealer(item)}>
+                <div key={index} onClick={() => getDealer(item)}>
                   <DealerCard
                     name={item.company}
                     address={item.address}
@@ -96,7 +117,11 @@ export default function Index() {
 
       <AskMira />
 
-      {/* <DealerModal dealer={dealer} setDealer={setDealer} /> */}
+      <DealerModal
+        dealer={dealer}
+        setDealer={setDealer}
+        initialDealer={initialDealer}
+      />
     </>
   );
 }

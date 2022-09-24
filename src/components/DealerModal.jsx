@@ -1,9 +1,7 @@
 import React from "react";
 import "./DealerModal.scss";
 
-export default function DelerModal({ dealer, setDealer }) {
-  const splitPhone = dealer?.phone.split(",");
-
+export default function DelerModal({ dealer, setDealer, initialDealer }) {
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -17,7 +15,7 @@ export default function DelerModal({ dealer, setDealer }) {
               );
             })}
           </ul>
-          <button onClick={() => setDealer(null)} className="btn-icon">
+          <button onClick={() => setDealer(initialDealer)} className="btn-icon">
             <svg
               width="33"
               height="33"
@@ -25,7 +23,7 @@ export default function DelerModal({ dealer, setDealer }) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_2_1606)">
+              <g clipPath="url(#clip0_2_1606)">
                 <path
                   d="M24.7436 9.90956L22.9857 8.15164L16.0163 15.121L9.04698 8.15164L7.28906 9.90956L14.2584 16.8789L7.28906 23.8483L9.04698 25.6062L16.0163 18.6368L22.9857 25.6062L24.7436 23.8483L17.7743 16.8789L24.7436 9.90956Z"
                   fill="black"
@@ -133,11 +131,7 @@ export default function DelerModal({ dealer, setDealer }) {
               />
             </svg>
 
-            <ul className="phone-list">
-              {splitPhone.map((item, index) => {
-                return <li key={index}>{item}</li>;
-              })}
-            </ul>
+            <div className="phone-list">{dealer.phone}</div>
           </div>
           <div className="email">
             <svg
