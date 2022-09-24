@@ -76,6 +76,13 @@
   line-height: 20px;
 }
 
+.list-icon {
+  svg {
+    display: block;
+    width: 100%;
+  }
+}
+
 .close-panel {
   display: flex;
   justify-content: center;
