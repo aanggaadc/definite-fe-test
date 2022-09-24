@@ -3,7 +3,7 @@ import Axios from "axios";
 import SearchIcon from "../assets/Search.svg";
 import "./DealerSearch.scss";
 
-export default function DealerSearch({ setDealer, setLocation, setLimitPage }) {
+export default function DealerSearch({ setProvince, setLimitPage }) {
   const [provinces, setProvinces] = useState([]);
   useEffect(() => {
     const getProvince = async () => {
@@ -31,7 +31,7 @@ export default function DealerSearch({ setDealer, setLocation, setLimitPage }) {
 
           <select
             onChange={(e) => {
-              setDealer(e.target.value);
+              setProvince(e.target.value);
               setLimitPage(9);
             }}
           >

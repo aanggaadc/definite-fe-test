@@ -6,6 +6,7 @@ import DealerSearch from "../components/DealerSearch";
 import AskMira from "../components/AskMira";
 import HeroImage from "../assets/hero.jpg";
 import DealerCard from "../components/DealerCard";
+import DealerModal from "../components/DealerModal";
 import BannerImage from "../assets/banner.jpg";
 import Axios from "axios";
 
@@ -13,37 +14,37 @@ export default function Index() {
   const [limitPage, setLimitPage] = useState(9);
   const [totalDealer, setTotalDealer] = useState(0);
   const [dealers, setDealers] = useState([]);
-  const [dealer, setDealer] = useState("");
+  const [province, setProvince] = useState("");
   const [location, setLocation] = useState("");
+  const [dealer, setDealer] = useState({});
+
+  console.log(dealer);
 
   const getLocation = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
       setLocation(`${position.coords.latitude},${position.coords.longitude}`);
     });
   };
-
   useEffect(() => {
     const getDelers = async () => {
       try {
         const response = await Axios.get(
           `search-dealers?limit=${limitPage}&latlong=${
-            dealer ? "" : location
-          }&keyword=${dealer} `
+            province ? "" : location
+          }&keyword=${province} `
         );
         getLocation();
         const dealerList = response?.data?.data;
         const totalDealer = response?.data?.total;
         setDealers(dealerList);
         setTotalDealer(totalDealer);
-
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
 
     getDelers();
-  }, [dealer, location, limitPage]);
+  }, [province, location, limitPage]);
   return (
     <>
       <Navbar />
@@ -54,7 +55,7 @@ export default function Index() {
         </section>
 
         <DealerSearch
-          setDealer={setDealer}
+          setProvince={setProvince}
           setLocation={setLocation}
           setLimitPage={setLimitPage}
         />
@@ -63,12 +64,13 @@ export default function Index() {
           <div className="dealers-container">
             {dealers.map((item, index) => {
               return (
-                <DealerCard
-                  key={index}
-                  name={item.company}
-                  address={item.address}
-                  service={item.services}
-                />
+                <div key={index} onClick={() => setDealer(item)}>
+                  <DealerCard
+                    name={item.company}
+                    address={item.address}
+                    service={item.services}
+                  />
+                </div>
               );
             })}
           </div>
@@ -93,6 +95,8 @@ export default function Index() {
       <Footer />
 
       <AskMira />
+
+      {/* <DealerModal dealer={dealer} setDealer={setDealer} /> */}
     </>
   );
 }

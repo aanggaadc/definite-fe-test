@@ -6,6 +6,12 @@
   border-radius: 20px;
   border: none;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #d3d3d3;
+  }
 }
 
 .pin-container {
