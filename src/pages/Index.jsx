@@ -3,7 +3,7 @@ import "./Index.scss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import DealerSearch from "../components/DealerSearch";
-import AskMira from "../components/AskMira";
+import Widget from "../components/Widget";
 import HeroImage from "../assets/hero.jpg";
 import DealerCard from "../components/DealerCard";
 import DealerModal from "../components/DealerModal";
@@ -126,7 +126,7 @@ export default function Index() {
 
       <Footer />
 
-      <AskMira />
+      <Widget />
 
       <DealerModal
         modalBackground={modalBackground}
