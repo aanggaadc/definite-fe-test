@@ -17,6 +17,8 @@ const initialDealer = {
   distance_km: "",
   bengkel_operational_hours: [],
   showroom_operational_hours: [],
+  latitude: "",
+  longitude: "",
 };
 
 export default function Index() {
@@ -38,6 +40,8 @@ export default function Index() {
       distance_km: item.distance_km,
       bengkel_operational_hours: item.bengkel_operational_hours,
       showroom_operational_hours: item.showroom_operational_hours,
+      latitude: item.latitude,
+      longitude: item.longitude,
     });
   };
 

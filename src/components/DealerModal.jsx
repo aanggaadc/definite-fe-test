@@ -96,7 +96,10 @@ export default function DelerModal({
             {dealer?.distance_km} km
           </span>
         </div>
-        <a className="dealer-direction" href="/">
+        <a
+          className="dealer-direction"
+          href={` https://www.google.com/maps/dir/Current+Location/${dealer.latitude},${dealer.longitude}`}
+        >
           <svg
             width="14"
             height="15"
