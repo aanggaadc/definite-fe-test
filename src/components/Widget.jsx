@@ -15,7 +15,7 @@ export default function Widget() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g opacity="0.75" clip-path="url(#clip0_888_930)">
+              <g opacity="0.75" clipPath="url(#clip0_888_930)">
                 <path
                   d="M17 6.20857L15.7914 5L11 9.79143L6.20857 5L5 6.20857L9.79143 11L5 15.7914L6.20857 17L11 12.2086L15.7914 17L17 15.7914L12.2086 11L17 6.20857Z"
                   fill="white"

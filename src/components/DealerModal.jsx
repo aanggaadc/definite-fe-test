@@ -174,13 +174,14 @@ export default function DelerModal({
             </svg>
 
             <div className="phone-list">
-              {dealer.phone.split(/,|;/).map((item, index) => {
-                return (
-                  <div key={index}>
-                    {item} <br />
-                  </div>
-                );
-              })}
+              {dealer?.phone &&
+                dealer?.phone.split(/,|;/).map((item, index) => {
+                  return (
+                    <div key={index}>
+                      {item} <br />
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <div className="email">
