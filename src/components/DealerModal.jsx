@@ -174,7 +174,7 @@ export default function DelerModal({
             </svg>
 
             <div className="phone-list">
-              {dealer.phone.split(",").map((item, index) => {
+              {dealer.phone.split(/,|;/).map((item, index) => {
                 return (
                   <div key={index}>
                     {item} <br />
