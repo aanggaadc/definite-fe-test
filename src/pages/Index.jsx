@@ -27,8 +27,6 @@ export default function Index() {
   const [location, setLocation] = useState("");
   const [dealer, setDealer] = useState(initialDealer);
 
-  console.log(dealer);
-
   const getDealer = (item) => {
     setDealer({
       company: item.company,

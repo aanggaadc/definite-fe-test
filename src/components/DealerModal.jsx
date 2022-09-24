@@ -131,7 +131,15 @@ export default function DelerModal({ dealer, setDealer, initialDealer }) {
               />
             </svg>
 
-            <div className="phone-list">{dealer.phone}</div>
+            <div className="phone-list">
+              {dealer.phone.split(",").map((item, index) => {
+                return (
+                  <div key={index}>
+                    {item} <br />
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <div className="email">
             <svg
